@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctvf7xvhfrmwu"]
+
+[ext_resource type="Texture2D" uid="uid://u13l8srkif6y" path="res://start-assets/start-assets/leaf2.png" id="1_tcn85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgws3"]
+size = Vector2(43.4463, 26.5)
+
+[node name="Leaf" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(2.67083, 1.77292)
+texture = ExtResource("1_tcn85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_pgws3")

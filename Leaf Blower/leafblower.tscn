@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cid1inap822x5"]
+
+[ext_resource type="Texture2D" uid="uid://c6muekuyr7rxg" path="res://start-assets/start-assets/leafblower.png" id="1_5alau"]
+[ext_resource type="Script" path="res://leafblower.gd" id="1_p6gyh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wngci"]
+radius = 45.0377
+height = 199.872
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4vbc"]
+size = Vector2(634.5, 346)
+
+[node name="Leafblower" type="CharacterBody2D"]
+script = ExtResource("1_p6gyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.0271755
+shape = SubResource("CapsuleShape2D_wngci")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.15372
+scale = Vector2(4.29621, 2.90774)
+texture = ExtResource("1_5alau")
+
+[node name="Area2D" type="Area2D" parent="."]
+gravity_space_override = 1
+gravity_point_center = Vector2(0, -1000)
+gravity_direction = Vector2(0, -1000)
+gravity = 98000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -278)
+shape = SubResource("RectangleShape2D_g4vbc")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

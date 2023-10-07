@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdlbuwbtqshv0"]
+
+[ext_resource type="Texture2D" uid="uid://df3pwilj5t1iw" path="res://start-assets/start-assets/fence.png" id="1_40pyx"]
+[ext_resource type="Texture2D" uid="uid://ldwkyfacx8wm" path="res://start-assets/start-assets/sky.png" id="1_e5pd3"]
+[ext_resource type="Texture2D" uid="uid://c8244jstuykrt" path="res://start-assets/start-assets/ground.png" id="1_pws8b"]
+[ext_resource type="Texture2D" uid="uid://41p6hnxertwn" path="res://start-assets/start-assets/tree.png" id="1_yu6qx"]
+[ext_resource type="PackedScene" uid="uid://ctvf7xvhfrmwu" path="res://leaf.tscn" id="2_alff3"]
+[ext_resource type="PackedScene" uid="uid://cid1inap822x5" path="res://leafblower.tscn" id="3_uyioj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccytc"]
+size = Vector2(1152, 13)
+
+[node name="World" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584.5, 310)
+scale = Vector2(1.169, 1.008)
+texture = ExtResource("1_e5pd3")
+
+[node name="Fence" type="Sprite2D" parent="."]
+position = Vector2(577.25, 497)
+scale = Vector2(3.35217, 2.80476)
+texture = ExtResource("1_40pyx")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(919, 332)
+scale = Vector2(3.5, 4.08)
+texture = ExtResource("1_yu6qx")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 9)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(579.25, 632)
+scale = Vector2(1.00477, 1.52546)
+texture = ExtResource("1_pws8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(576, 633)
+shape = SubResource("RectangleShape2D_ccytc")
+
+[node name="Leafblower" parent="." instance=ExtResource("3_uyioj")]
+position = Vector2(393, 486)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Leaf" parent="." instance=ExtResource("2_alff3")]
+position = Vector2(379, 4)
+collision_mask = 5
+
+[node name="Leaf2" parent="." instance=ExtResource("2_alff3")]
+position = Vector2(525, 465)
+collision_mask = 5
